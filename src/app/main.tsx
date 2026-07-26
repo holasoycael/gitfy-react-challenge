@@ -15,3 +15,15 @@ createRoot(document.getElementById('root')!).render(
     </HeroUIProvider>
   </StrictMode>
 )
+
+// Real User Monitoring implementation
+import { onLCP, onINP, onCLS } from 'web-vitals'
+
+function sendToAnalytics(metric) {
+  // Send data to custom API, Google Analytics, Vercel, or Sentry
+  console.log(metric)
+}
+
+onLCP(sendToAnalytics)
+onINP(sendToAnalytics)
+onCLS(sendToAnalytics)
