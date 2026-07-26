@@ -26,6 +26,7 @@
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",
     "tailwindcss": "^4.3.3",
+    "zod": "^3.25.76",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
@@ -35,10 +36,10 @@
     "@storybook/addon-themes": "^10.5.4",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.3",
     "@storybook/react-webpack5": "^10.5.4",
+    "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@tailwindcss/vite": "^4.3.3",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
