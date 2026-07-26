@@ -10,7 +10,7 @@ const prettierPlugin = require('eslint-plugin-prettier')
 const prettierConfig = require('eslint-config-prettier')
 
 module.exports = [
-  { ignores: ['build', 'dist', 'node_modules', 'coverage', 'eslint.config.cjs'] },
+  { ignores: ['build', 'dist', 'node_modules', 'coverage', 'eslint.config.cjs', 'jest.config.cjs'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -25,7 +25,11 @@ module.exports = [
       ecmaVersion: 2023,
       sourceType: 'module',
       parser: tseslint.parser,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true
@@ -48,6 +52,12 @@ module.exports = [
       react: {
         version: 'detect'
       }
+    }
+  },
+  {
+    files: ['src/helpers/**/*.{ts,tsx}', '**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off'
     }
   },
   prettierConfig
