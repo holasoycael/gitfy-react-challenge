@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { fileURLToPath } from 'url'
 import path from 'path'
+import { fileURLToPath } from 'url'
+import tailwindcss from '@tailwindcss/postcss'
 
 // types and interfaces
 import type { StorybookConfig } from '@storybook/react-webpack5'
@@ -63,7 +64,14 @@ const config: StorybookConfig = {
 
             // If css-loader is found and postcss-loader is not present, add it
             if (cssLoaderIndex !== -1 && !hasPostCSSLoader) {
-              rule.use.splice(cssLoaderIndex + 1, 0, 'postcss-loader')
+              rule.use.splice(cssLoaderIndex + 1, 0, {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: [tailwindcss]
+                  }
+                }
+              })
             }
           }
         })

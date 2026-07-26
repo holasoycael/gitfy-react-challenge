@@ -1,3 +1,5 @@
+import chroma from 'chroma-js'
+
 // childrens
 import doubleclick from './doubleclick'
 
@@ -104,6 +106,60 @@ class Utils {
   formatNumber(current: number, total: number) {
     const length = String(total).length
     return String(current).padStart(length, '0')
+  }
+
+  /**
+   * Ex.:
+    {
+      "50": "#dcfffb",
+      "100": "#baffdc",
+      "200": "#99ffbd",
+      "300": "#77ff9f",
+      "400": "#53f282",
+      "500": "#25d366",
+      "600": "#00b44a",
+      "700": "#00962f",
+      "800": "#007911",
+      "900": "#005d00",
+      "main": "#25d366",
+      "light": "#77ff9f",
+      "dark": "#00962f",
+      "contrastText": "rgba(0, 0, 0, 0.87)",
+      "A100": "#82ff95",
+      "A200": "#64ff75",
+      "A400": "#00d12a",
+      "A700": "#00be00"
+    }
+   * 
+  */
+  palette(baseHex: string) {
+    const base = chroma(baseHex)
+
+    const palette = {
+      50: base.brighten(3).hex(),
+      100: base.brighten(2.4).hex(),
+      200: base.brighten(1.8).hex(),
+      300: base.brighten(1.2).hex(),
+      400: base.brighten(0.6).hex(),
+      500: base.hex(),
+      600: base.darken(0.6).hex(),
+      700: base.darken(1.2).hex(),
+      800: base.darken(1.8).hex(),
+      900: base.darken(2.4).hex(),
+
+      A100: base.saturate(1.2).brighten(1.5).hex(),
+      A200: base.saturate(1.5).brighten(1).hex(),
+      A400: base.saturate(2).darken(0.2).hex(),
+      A700: base.saturate(2.5).darken(0.6).hex()
+    }
+
+    return {
+      main: palette[500],
+      light: palette[300],
+      dark: palette[700],
+      contrastText: chroma.contrast(palette[500], '#000') > 4.5 ? 'rgba(0, 0, 0, 0.87)' : '#fff',
+      ...palette
+    }
   }
 }
 

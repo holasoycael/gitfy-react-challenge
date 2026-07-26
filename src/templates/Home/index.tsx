@@ -4,6 +4,8 @@ import { Button } from '@heroui/button'
 
 // components JSX
 import Atmosphere from 'components/Atmosphere'
+import GlowTop from 'components/GlowTop'
+import GlowBottom from 'components/GlowBottom'
 
 // icons lucide
 import { Search as IconSearch } from 'lucide-react'
@@ -26,41 +28,8 @@ const Home = () => {
           </div>
         </div>
 
-        <div
-          className="pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(48.78087172574147% 48.780871725741484% at 52.26579732061952% 52.311511675873824%, rgba(31,183,107, 0.35), rgba(0,0,0,0))',
-            flex: 'none',
-            height: '726px',
-            left: 'calc(50.00000000000002% - 345px / 2)',
-            position: 'absolute',
-            top: '-328px',
-            userSelect: 'none',
-            width: '345px',
-            zIndex: -1,
-            animation: 'glow-drift-top 22s ease-in-out infinite',
-            willChange: 'transform, opacity'
-          }}
-        />
-
-        <div
-          className="pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(48.78087172574147% 48.780871725741484% at 52.26579732061952% 52.311511675873824%, rgba(31,183,107, 0.25), rgba(0,0,0,0))',
-            flex: 'none',
-            height: '726px',
-            left: 'calc(50.00000000000002% - 345px / 2)',
-            position: 'absolute',
-            bottom: -481,
-            userSelect: 'none',
-            width: '345px',
-            zIndex: -1,
-            animation: 'glow-drift-bottom 26s ease-in-out infinite',
-            willChange: 'transform, opacity'
-          }}
-        />
+        <GlowTop />
+        <GlowBottom />
 
         <div className="flex flex-col gap-2">
           <Input

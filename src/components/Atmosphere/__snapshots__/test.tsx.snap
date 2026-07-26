@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Atmosphere /> should render default atmosphere background elements correctly 1`] = `
+<div
+  data-overlay-container="true"
+>
+  <div
+    aria-hidden="true"
+    class="w-full h-full pointer-events-none absolute inset-0 overflow-hidden"
+    data-testid="atmosphere__container"
+    style="contain: strict; will-change: transform;"
+  >
+    <div
+      class="absolute left-1/2 top-[-10%] h-130 w-205 rounded-full"
+      data-description="Almost invisible radial light, centered near the top"
+      data-testid="atmosphere__radial-light"
+      style="background: radial-gradient(ellipse at center, rgb(56 139 253 / 0.15), transparent 70%); animation: atmosphere-drift 28s ease-in-out infinite; will-change: transform, opacity;"
+    />
+    <div
+      class="absolute inset-0"
+      data-description="Faint grid"
+      data-testid="atmosphere__grid"
+      style="background-image: linear-gradient(to right, rgb(230 237 243 / 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgb(230 237 243 / 0.03) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 40%, transparent 100%);"
+    />
+    <div
+      class="absolute inset-0"
+      data-description="Subtle dot pattern"
+      data-testid="atmosphere__dot-pattern"
+      style="background-image: radial-gradient(rgb(125 133 144 / 0.12) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 20%, transparent 85%);"
+    />
+    <div
+      class="absolute inset-0 mix-blend-soft-light"
+      data-description="Soft noise texture"
+      data-testid="atmosphere__noise-texture"
+      style="opacity: 0.025; will-change: transform; contain: strict;"
+    />
+  </div>
+</div>
+`;
