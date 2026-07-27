@@ -1,14 +1,14 @@
-import { expect, within, userEvent, fn } from 'storybook/test'
+import { expect, fn, userEvent, within } from 'storybook/test'
 import SimpleBar from 'simplebar-react'
 
 // helpers
 import { App } from 'helpers/Storybook'
 
-// components JSX
-import SearchUser from '.'
-
 // models
 import GitHub from 'models/Github'
+
+// components JSX
+import SearchUser from '.'
 
 // types and interfaces
 import type { Meta, StoryObj } from '@storybook/react'
@@ -30,14 +30,29 @@ export default {
     docs: {
       description: {
         component:
-          'Componente de busca assíncrona de usuários do GitHub com autopreenchimento, navegação por teclado e integração com a camada de domínio User.'
+          'Componente de busca assíncrona de usuários do GitHub com suporte a autopreenchimento, navegação por teclado (setas e Enter) e acessibilidade.'
       }
     }
   },
   argTypes: {
+    placeholder: {
+      description: 'Texto de orientação (placeholder) exibido no campo de entrada quando está vazio.',
+      control: 'text',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Buscar GitHub username...' }
+      }
+    },
+    onFetch: {
+      action: 'onFetch',
+      description: 'Função assíncrona executada com debounce para buscar usuários correspondentes ao texto digitado.',
+      table: {
+        type: { summary: '(query: string) => Promise<TRowUser[]>' }
+      }
+    },
     onSelect: {
       action: 'onSelect',
-      description: 'Callback executado ao selecionar um usuário na lista de resultados.',
+      description: 'Callback acionado ao escolher um usuário da lista dropdown de resultados.',
       table: {
         type: { summary: '(user: TRowUser) => void' }
       }

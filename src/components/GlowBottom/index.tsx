@@ -4,7 +4,7 @@ import { memo } from 'react'
 // types and interfaces
 import type { GlowBottomProps } from './types'
 
-const GlowBottom = ({ color = '#1fb76b', opacity = 0.25 }: GlowBottomProps) => {
+const GlowBottom = ({ color = '#1fb76b', opacity = 0.25, zIndex = 1 }: GlowBottomProps) => {
   const glowRgba = chroma(color).alpha(opacity).css()
 
   return (
@@ -20,7 +20,7 @@ const GlowBottom = ({ color = '#1fb76b', opacity = 0.25 }: GlowBottomProps) => {
         bottom: -481,
         userSelect: 'none',
         width: '345px',
-        zIndex: -1,
+        zIndex,
         animation: 'glow-drift-bottom 26s ease-in-out infinite',
         willChange: 'transform, opacity'
       }}

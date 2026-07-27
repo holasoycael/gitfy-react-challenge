@@ -56,8 +56,8 @@ const Home = () => {
           </div>
         </div>
 
-        <GlowTop />
-        <GlowBottom />
+        <GlowTop zIndex={-1} />
+        <GlowBottom zIndex={-1} />
 
         <div className="flex flex-col gap-6">
           <SearchUser onFetch={onFetch} onSelect={onSelect} placeholder="Buscar GitHub username..." />

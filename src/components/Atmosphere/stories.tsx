@@ -1,11 +1,10 @@
+import { expect, within } from 'storybook/test'
+
 // helpers
 import { App } from 'helpers/Storybook'
 
 // components JSX
 import Atmosphere from '.'
-
-// external libraries
-import { expect, within } from 'storybook/test'
 
 // types and interfaces
 import type { Meta, StoryObj } from '@storybook/react'
@@ -14,7 +13,13 @@ export default {
   title: 'Components/Atmosphere',
   component: Atmosphere,
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Componente de efeito atmosférico de fundo com iluminação radial, grade suave, padrão de pontos e textura de ruído sintético.'
+      }
+    }
   },
   decorators: [
     (Story) => (
@@ -26,13 +31,62 @@ export default {
     )
   ],
   argTypes: {
-    radialColor: { control: 'color' },
-    radialOpacity: { control: { type: 'number', min: 0, max: 1, step: 0.01 } },
-    gridColor: { control: 'color' },
-    gridOpacity: { control: { type: 'number', min: 0, max: 1, step: 0.01 } },
-    dotColor: { control: 'color' },
-    dotOpacity: { control: { type: 'number', min: 0, max: 1, step: 0.01 } },
-    noiseOpacity: { control: { type: 'number', min: 0, max: 1, step: 0.01 } }
+    radialColor: {
+      description: 'Cor hexadecimal ou CSS da luz radial centralizada no topo.',
+      control: 'color',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '#388bfd' }
+      }
+    },
+    radialOpacity: {
+      description: 'Opacidade da luz radial superior (valor entre 0 e 1).',
+      control: { type: 'number', min: 0, max: 1, step: 0.01 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0.15' }
+      }
+    },
+    gridColor: {
+      description: 'Cor das linhas que compõem a grade sutil de fundo.',
+      control: 'color',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '#e6edf3' }
+      }
+    },
+    gridOpacity: {
+      description: 'Opacidade das linhas da grade de fundo (valor entre 0 e 1).',
+      control: { type: 'number', min: 0, max: 1, step: 0.01 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0.03' }
+      }
+    },
+    dotColor: {
+      description: 'Cor dos pontos no padrão pontilhado de fundo.',
+      control: 'color',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '#7d8590' }
+      }
+    },
+    dotOpacity: {
+      description: 'Opacidade dos pontos do padrão pontilhado (valor entre 0 e 1).',
+      control: { type: 'number', min: 0, max: 1, step: 0.01 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0.12' }
+      }
+    },
+    noiseOpacity: {
+      description: 'Opacidade da textura de ruído granulado sobreposta (valor entre 0 e 1).',
+      control: { type: 'number', min: 0, max: 1, step: 0.01 },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '0.025' }
+      }
+    }
   }
 } as Meta<typeof Atmosphere>
 

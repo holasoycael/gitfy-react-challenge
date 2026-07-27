@@ -20,7 +20,18 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Componente de exibição de informações detalhadas do perfil de usuário do GitHub na barra lateral.'
+        component:
+          'Componente de exibição de informações detalhadas do perfil de usuário do GitHub na barra lateral (avatar, nome, métricas e links sociais).'
+      }
+    }
+  },
+  argTypes: {
+    data: {
+      description:
+        'Objeto contendo todas as informações do perfil do usuário retornado da API do GitHub (avatar_url, name, login, bio, followers, following, location, company, email, blog, html_url).',
+      control: 'object',
+      table: {
+        type: { summary: 'IUser' }
       }
     }
   },

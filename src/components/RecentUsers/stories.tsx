@@ -25,18 +25,32 @@ export default {
     docs: {
       description: {
         component:
-          'Componente de usuários buscados recentemente, exibindo até os 4 mais recentes ordenados pela data de acesso.'
+          'Componente de usuários buscados recentemente, exibindo até 4 badges interativas ordenadas pela data de acesso.'
       }
     }
   },
   argTypes: {
+    items: {
+      description:
+        'Lista de usernames dos usuários buscados recentemente. Caso a lista esteja vazia, exibe sugestões padrão.',
+      control: 'object',
+      table: {
+        type: { summary: 'string[]' }
+      }
+    },
     onClick: {
       action: 'onClick',
-      description: 'Callback disparado ao clicar no badge de um usuário recente.'
+      description: 'Callback disparado ao clicar na badge de um usuário recente para carregar seus dados.',
+      table: {
+        type: { summary: '(user: string) => void' }
+      }
     },
     onOpen: {
       action: 'onOpen',
-      description: 'Callback disparado ao clicar no botão "Ver todos buscados".'
+      description: 'Callback disparado ao clicar no botão "Ver todos buscados" para exibir o histórico completo.',
+      table: {
+        type: { summary: '() => void' }
+      }
     }
   },
   args: {

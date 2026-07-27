@@ -1,4 +1,4 @@
-import { expect, within, userEvent } from 'storybook/test'
+import { expect, userEvent, within } from 'storybook/test'
 import SimpleBar from 'simplebar-react'
 
 // helpers
@@ -24,9 +24,36 @@ export default {
     docs: {
       description: {
         component:
-          'Componente de listagem de repositórios públicos do GitHub com suporte a ordenação por estrelas, nome e atualização.'
+          'Componente de listagem de repositórios públicos do GitHub com suporte a ordenação dinâmica por estrelas, nome e atualização recente.'
       }
     }
+  },
+  argTypes: {
+    username: {
+      description: 'Nome de usuário do GitHub cujos repositórios públicos são exibidos.',
+      control: 'text',
+      table: {
+        type: { summary: 'string' }
+      }
+    },
+    repos: {
+      description:
+        'Lista de repositórios contendo metadados como nome, linguagem, contagem de estrelas, forks e data de atualização.',
+      control: 'object',
+      table: {
+        type: { summary: 'IGitHubRepo[]' }
+      }
+    },
+    onRetry: {
+      action: 'onRetry',
+      description: 'Callback acionado para tentar recarregar os dados do usuário em caso de erro.',
+      table: {
+        type: { summary: '() => void' }
+      }
+    }
+  },
+  args: {
+    username: 'holasoycael'
   },
   decorators: [
     (Story) => (
@@ -42,7 +69,11 @@ export default {
 } as Meta<typeof RepoList>
 
 export const DataState: StoryObj<typeof DataRepoList> = {
-  render: () => <DataRepoList repos={mockRepos} username="holasoycael" />,
+  render: (args) => <DataRepoList repos={args.repos || mockRepos} username={args.username || 'holasoycael'} />,
+  args: {
+    repos: mockRepos,
+    username: 'holasoycael'
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByTestId('repo-list')).toBeInTheDocument()
@@ -52,7 +83,11 @@ export const DataState: StoryObj<typeof DataRepoList> = {
 }
 
 export const SortingInteraction: StoryObj<typeof DataRepoList> = {
-  render: () => <DataRepoList repos={mockRepos} username="holasoycael" />,
+  render: (args) => <DataRepoList repos={args.repos || mockRepos} username={args.username || 'holasoycael'} />,
+  args: {
+    repos: mockRepos,
+    username: 'holasoycael'
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const selectTrigger = canvas.getByTestId('repo-list__select--sort')
@@ -61,7 +96,11 @@ export const SortingInteraction: StoryObj<typeof DataRepoList> = {
 }
 
 export const EmptyState: StoryObj<typeof DataRepoList> = {
-  render: () => <DataRepoList repos={[]} username="holasoycael" />,
+  render: (args) => <DataRepoList repos={[]} username={args.username || 'holasoycael'} />,
+  args: {
+    repos: [],
+    username: 'holasoycael'
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByTestId('repo-list__empty-state')).toBeInTheDocument()
@@ -78,7 +117,10 @@ export const SkeletonState: StoryObj<typeof SkeletonRepoList> = {
 }
 
 export const ErrorState: StoryObj<typeof ErrorRepoList> = {
-  render: () => <ErrorRepoList username="holasoycael" onRetry={() => {}} />,
+  render: (args) => <ErrorRepoList username={args.username || 'holasoycael'} onRetry={args.onRetry || (() => {})} />,
+  args: {
+    username: 'holasoycael'
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await expect(canvas.getByTestId('repo-list__error')).toBeInTheDocument()

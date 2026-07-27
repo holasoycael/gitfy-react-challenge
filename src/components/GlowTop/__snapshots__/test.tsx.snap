@@ -7,7 +7,7 @@ exports[`<GlowTop /> should render default glow top element correctly 1`] = `
   <div
     class="pointer-events-none"
     data-testid="glow-top__container"
-    style="background: radial-gradient(48.78087172574147% 48.780871725741484% at 52.26579732061952% 52.311511675873824%, rgb(31 183 107 / 0.35), rgba(0,0,0,0)); flex: 0 0 auto; height: 726px; left: calc(50% - 172.5px); position: absolute; top: -328px; user-select: none; width: 345px; z-index: -1; animation: glow-drift-top 22s ease-in-out infinite; will-change: transform, opacity;"
+    style="background: radial-gradient(48.78087172574147% 48.780871725741484% at 52.26579732061952% 52.311511675873824%, rgb(31 183 107 / 0.35), rgba(0,0,0,0)); flex: 0 0 auto; height: 726px; left: calc(50% - 172.5px); position: absolute; top: -328px; user-select: none; width: 345px; z-index: 1; animation: glow-drift-top 22s ease-in-out infinite; will-change: transform, opacity;"
   />
 </div>
 `;
