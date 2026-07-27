@@ -3,7 +3,7 @@ import { Skeleton } from '@heroui/react'
 
 const SkeletonRepoList = () => {
   return (
-    <div className="w-full flex flex-col" data-testid="repo-list__skeleton">
+    <div className="dark w-full flex flex-col" data-testid="repo-list__skeleton">
       <div className="w-full flex items-center justify-between pb-4 border-b border-white/8 h-7">
         <div className="flex items-center gap-2">
           <Skeleton className="h-4 w-28 rounded-md" />
