@@ -58,7 +58,8 @@ const Home = () => {
               <span className="dark:text-white text-black text-2xl font-centrale-sans">Explore GitHub</span>
 
               <span className="dark:text-white/70 text-black text-sm font-extralight text-center max-w-[calc(100vw-32px)]">
-                Search for any GitHub developer and explore repositories, stars, languages and project details.
+                Busque qualquer desenvolvedor do GitHub e explore repositórios, estrelas, linguagens e detalhes de
+                projetos.
               </span>
             </div>
           </div>
