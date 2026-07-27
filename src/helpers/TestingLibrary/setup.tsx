@@ -38,3 +38,10 @@ jest.mock('react-syntax-highlighter', () => ({
 jest.mock('react-syntax-highlighter/dist/esm/styles/prism', () => ({
   oneDark: {}
 }))
+
+jest.mock('utils/env', () => ({
+  __esModule: true,
+  default: {
+    GITHUB_API: 'https://api.github.com'
+  }
+}))

@@ -7,7 +7,7 @@ module.exports = {
       {
         tsconfig: 'tsconfig.app.json',
         diagnostics: {
-          ignoreCodes: [1295, 1287]
+          ignoreCodes: [1295, 1287, 1343]
         }
       }
     ]
