@@ -1,9 +1,15 @@
 @import "tailwindcss";
 @plugin '../utils/hero.ts';
 
+@theme {
+  --font-centrale-sans: 'Centrale Sans', system-ui, sans-serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
 /* Note: You may need to change the path to fit your project structure */
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
+
 
 :root {
   --text: #6b6375;
@@ -197,7 +203,7 @@
   src: url('/fonts/centrale-sans-light.woff2') format('woff2');
   font-style: normal;
   font-weight: 300; /* Light */
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {
@@ -205,7 +211,7 @@
   src: url('/fonts/centrale-sans-regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 400; /* Regular */
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {
@@ -213,7 +219,7 @@
   src: url('/fonts/centrale-sans-medium.woff2') format('woff2');
   font-style: normal;
   font-weight: 500; /* Medium */
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {
@@ -221,8 +227,9 @@
   src: url('/fonts/centrale-sans-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700; /* Bold */
-  font-display: optional;
+  font-display: swap;
 }
+
 
 
 html,
@@ -262,6 +269,20 @@ h2 {
 }
 p {
   margin: 0;
+}
+
+[role='tooltip'] {
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 11px !important;
+  line-height: 15px !important;
+}
+
+[role='tooltip'] .react-tooltip-content-wrapper {
+  padding: initial !important;
+  line-height: inherit;
 }
 
 /* ========================================

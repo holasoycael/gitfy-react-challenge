@@ -1,22 +1,24 @@
 import { act } from 'react'
 
+// testing
+import userEvent from '@testing-library/user-event'
+
 // helpers
 import { renderWithTheme } from 'helpers/TestingLibrary'
 
 // components JSX
 import SearchUser from '.'
 
-// childrens
-import { mockUsers } from './mock'
+// mocks
+import mock from './mock'
 
 // external libraries
 import { screen, waitFor, fireEvent } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 
 // types and interfaces
 import type { TRowUser } from './types'
 
-const mockRowUsers: TRowUser[] = mockUsers.map((user) => ({
+const mockRowUsers: TRowUser[] = mock.items.map((user) => ({
   username: user.login,
   avatarUrl: user.avatar_url
 }))

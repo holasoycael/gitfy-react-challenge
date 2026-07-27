@@ -3,6 +3,8 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import tailwindcss from '@tailwindcss/postcss'
 
+import webpack from 'webpack'
+
 // types and interfaces
 import type { StorybookConfig } from '@storybook/react-webpack5'
 
@@ -21,6 +23,13 @@ const config: StorybookConfig = {
     if (config.plugins) {
       config.plugins = config.plugins.filter((plugin) => plugin?.constructor?.name !== 'ProgressPlugin')
     }
+
+    config.plugins = [
+      ...(config.plugins || []),
+      new webpack.DefinePlugin({
+        'import.meta.env.VITE_GITHUB_API': JSON.stringify(process.env.VITE_GITHUB_API)
+      })
+    ]
 
     if (config.module) {
       config.module.exprContextCritical = false

@@ -133,7 +133,7 @@ const SearchUser = ({ onFetch, onSelect, placeholder }: SearchUserProps) => {
         classNames={{
           mainWrapper: 'w-full',
           inputWrapper: 'pr-1.5',
-          input: 'placeholder:text-sm placeholder:text-white/60 placeholder:font-extralight'
+          input: 'text-sm placeholder:text-xs placeholder:text-white/60 placeholder:font-extralight placeholder:italic'
         }}
         data-testid="search-user__input"
       />
@@ -141,7 +141,7 @@ const SearchUser = ({ onFetch, onSelect, placeholder }: SearchUserProps) => {
       {isOpen && searchValue.trim() && (
         <div
           ref={dropdownRef}
-          className="absolute z-50 mt-1 w-full max-h-72 overflow-y-auto rounded-lg border border-white/10 bg-[#161b22] shadow-lg backdrop-blur-sm"
+          className="absolute z-50 mt-1.5 w-full max-h-60 overflow-y-auto rounded-xl border border-white/10 bg-[#161b22]/95 p-1 shadow-xl backdrop-blur-md"
           data-testid="search-user__dropdown"
           role="listbox"
         >
@@ -151,7 +151,7 @@ const SearchUser = ({ onFetch, onSelect, placeholder }: SearchUserProps) => {
             users.map((user, index) => (
               <div
                 key={user.username}
-                className={`flex cursor-pointer items-center gap-3 px-3 py-2.5 transition-colors ${
+                className={`flex cursor-pointer items-center gap-2.5 rounded-lg px-2.5 py-1.5 transition-colors ${
                   index === activeIndex ? 'bg-white/10' : 'hover:bg-white/5'
                 }`}
                 data-testid={index === activeIndex ? 'search-user__item--active' : 'search-user__item'}
@@ -163,17 +163,22 @@ const SearchUser = ({ onFetch, onSelect, placeholder }: SearchUserProps) => {
                 }}
                 onMouseEnter={() => setActiveIndex(index)}
               >
-                <img src={user.avatarUrl} alt={user.username} className="h-8 w-8 rounded-full" loading="lazy" />
-                <span className="text-sm text-white/90">{user.username}</span>
+                <img
+                  src={user.avatarUrl}
+                  alt={user.username}
+                  className="h-6 w-6 rounded-full object-cover shrink-0"
+                  loading="lazy"
+                />
+                <span className="text-xs font-medium text-white/90 truncate">{user.username}</span>
               </div>
             ))
           ) : (
             <div
-              className="p-4 text-sm text-white/50 flex flex-col items-center justify-center space-y-3 min-h-48"
+              className="p-3 text-xs text-white/50 flex flex-col items-center justify-center space-y-2 min-h-32"
               data-testid="search-user__empty"
             >
-              <IconPackageOpen size={44} strokeWidth={0.5} />
-              <p className="text-white/80 text-sm font-extralight text-center max-w-sm">Nenhum usuário encontrado</p>
+              <IconPackageOpen size={36} strokeWidth={0.5} />
+              <p className="text-white/80 text-xs font-extralight text-center max-w-sm">Nenhum usuário encontrado</p>
             </div>
           )}
         </div>

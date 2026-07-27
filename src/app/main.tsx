@@ -6,7 +6,8 @@ import { BrowserRouter } from 'react-router-dom'
 // components JSX
 import App from './App.tsx'
 
-// styles
+// global css imports from lib
+import 'simplebar-react/dist/simplebar.min.css'
 import 'styles/index.css'
 
 createRoot(document.getElementById('root')!).render(
@@ -22,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
 // Real User Monitoring implementation
 import { onLCP, onINP, onCLS } from 'web-vitals'
 
-function sendToAnalytics(metric) {
+function sendToAnalytics(metric: unknown) {
   // Send data to custom API, Google Analytics, Vercel, or Sentry
   console.log(metric)
 }

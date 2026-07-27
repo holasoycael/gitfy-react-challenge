@@ -32,6 +32,6 @@ module.exports = {
     '!src/typings/**/*.ts',
     '!src/app/**/*.ts(x)?'
   ],
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  setupFilesAfterEnv: ['<rootDir>/src/helpers/TestingLibrary/setup.ts'],
   modulePaths: ['<rootDir>/src/']
 }
