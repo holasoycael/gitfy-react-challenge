@@ -296,7 +296,6 @@ html, body, #root, #root > div {
   padding: 0 !important;
 }
 
-
 [data-simplebar] {
   height: 100%;
 
@@ -352,6 +351,16 @@ html, body, #root, #root > div {
 
 [data-after="visible"].scroll-shadow .simplebar-offset::after {
   opacity: 1;
+}
+
+.markdown-body pre {
+  padding: 0 !important;
+  background-color: initial !important;
+  border-radius: initial !important;
+}
+
+.markdown-body pre > div {
+  margin: 0 !important;
 }
 
 /* ========================================

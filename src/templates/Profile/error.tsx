@@ -14,9 +14,7 @@ import type { ErrorProfileProps } from './types'
 const ErrorProfile = ({ username, onRetry }: ErrorProfileProps) => {
   const navigate = useNavigate()
 
-  const handleBack = () => {
-    navigate('/')
-  }
+  const handleBack = () => navigate('/')
 
   return (
     <div

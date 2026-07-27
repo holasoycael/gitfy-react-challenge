@@ -32,6 +32,6 @@ module.exports = {
     '!src/typings/**/*.ts',
     '!src/app/**/*.ts(x)?'
   ],
-  setupFilesAfterEnv: ['<rootDir>/src/helpers/TestingLibrary/setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/helpers/TestingLibrary/setup.tsx'],
   modulePaths: ['<rootDir>/src/']
 }

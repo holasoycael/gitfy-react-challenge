@@ -2,15 +2,15 @@ import { format } from 'date-fns'
 import { useNavigate } from 'react-router'
 import ptBR from 'date-fns/locale/pt-BR'
 
+// models
+import Github from 'models/Github'
+
 // heroui
 import { Chip } from '@heroui/react'
 
 // icons lucide
 import { Star as IconStar } from 'lucide-react'
 import { GitFork as IconGitFork } from 'lucide-react'
-
-// data
-import { LANGUAGE_COLORS } from './data'
 
 // types and interfaces
 import type { RepoItemProps } from './types'
@@ -22,15 +22,7 @@ const RepoItem = ({ repo, username }: RepoItemProps) => {
     navigate(`/${username}/${repo.name}`)
   }
 
-  const languageColor = (() => {
-    try {
-      if (!repo.language) return null
-      return LANGUAGE_COLORS[repo.language] || '#8b8b8b'
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      return null
-    }
-  })()
+  const languageColor = Github.repos.language.getColor(repo.language)
 
   const formattedDate = (() => {
     try {
