@@ -16,7 +16,7 @@ const GlowBottom = ({ color = '#1fb76b', opacity = 0.25, zIndex = 1 }: GlowBotto
         flex: 'none',
         height: '726px',
         left: 'calc(50.00000000000002% - 345px / 2)',
-        position: 'absolute',
+        position: 'fixed',
         bottom: -481,
         userSelect: 'none',
         width: '345px',

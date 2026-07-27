@@ -30,15 +30,20 @@ const DataRepository = ({ data, user }: DataRepositoryProps) => {
   const languageColor = Github.repos.language.getColor(repo.language)
 
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_296px] gap-10 items-start" data-testid="repository__data">
+    <div
+      className="w-full flex flex-col-reverse lg:grid lg:grid-cols-[1fr_296px] gap-6 lg:gap-10 items-start"
+      data-testid="repository__data"
+    >
       <div className="w-full min-w-0 space-y-4" data-testid="repository__main">
         <div className="flex items-center gap-2 pb-3 border-b border-white/10">
           <IconBookOpen size={24} className="text-white/40 shrink-0" strokeWidth={1.5} />
-          <h2 className="text-2xl! font-medium text-white/80 uppercase tracking-wider leading-8 mb-0.5!">README.md</h2>
+          <h2 className="text-xl! sm:text-2xl! font-medium text-white/80 uppercase tracking-wider leading-8 mb-0.5!">
+            README.md
+          </h2>
         </div>
 
         {readme ? (
-          <div data-testid="repository__readme">
+          <div data-testid="repository__readme" className="overflow-x-auto max-w-full">
             <MarkdownRenderer content={readme} />
           </div>
         ) : (
@@ -48,10 +53,13 @@ const DataRepository = ({ data, user }: DataRepositoryProps) => {
         )}
       </div>
 
-      <aside className="sticky top-6 space-y-5" data-testid="repository__sidebar">
-        <div className="space-y-1.5" data-testid="repository__info">
+      <aside
+        className="w-full relative lg:sticky top-0 lg:top-6 space-y-4 sm:space-y-5"
+        data-testid="repository__sidebar"
+      >
+        <div className="space-y-1.5 min-w-0" data-testid="repository__info">
           <h1
-            className="text-[28px]! font-light! text-white leading-tight m-0! font-inter tracking-tight"
+            className="text-xl! sm:text-2xl! lg:text-[28px]! font-light! text-white leading-tight m-0! font-inter tracking-tight wrap-break-word"
             data-testid="repository__name"
           >
             {repo.name}
@@ -68,23 +76,26 @@ const DataRepository = ({ data, user }: DataRepositoryProps) => {
           )}
         </div>
 
-        <div className="space-y-2.5" data-testid="repository__about">
+        <div className="space-y-2.5 min-w-0" data-testid="repository__about">
           <h2 className="text-base! font-light text-white/40 font-centrale-sans">Sobre</h2>
           {repo.description ? (
-            <p className="text-sm text-white/60 font-light leading-relaxed" data-testid="repository__description">
+            <p
+              className="text-xs sm:text-sm text-white/60 font-light leading-relaxed wrap-break-word"
+              data-testid="repository__description"
+            >
               {repo.description}
             </p>
           ) : (
-            <p className="text-sm text-white/30 font-light italic">Sem descrição disponível.</p>
+            <p className="text-xs sm:text-sm text-white/30 font-light italic">Sem descrição disponível.</p>
           )}
 
           {repo.homepage && (
-            <div className="flex items-center gap-2 pt-1 text-sm text-white/50">
+            <div className="flex items-center gap-2 pt-1 text-xs sm:text-sm text-white/50 min-w-0">
               <IconLink size={15} className="text-white/30 shrink-0" />
               <Link
                 href={repo.homepage.startsWith('http') ? repo.homepage : `https://${repo.homepage}`}
                 isExternal
-                className="text-sm text-white/50 hover:text-[#1FB76B] font-light truncate"
+                className="text-xs sm:text-sm text-white/50 hover:text-[#1FB76B] font-light truncate max-w-full"
               >
                 {repo.homepage}
               </Link>
@@ -93,7 +104,7 @@ const DataRepository = ({ data, user }: DataRepositoryProps) => {
         </div>
 
         <div
-          className="flex flex-col gap-2.5 text-sm text-white/50 font-light border-t border-white/10 pt-4"
+          className="flex flex-col gap-2.5 text-xs sm:text-sm text-white/50 font-light border-t border-white/10 pt-4"
           data-testid="repository__meta"
         >
           <div className="flex items-center gap-2" data-testid="repository__chip--stars">
@@ -124,20 +135,20 @@ const DataRepository = ({ data, user }: DataRepositoryProps) => {
           {repo.license && (
             <div className="flex items-center gap-2" data-testid="repository__meta--license">
               <IconScale size={18} className="text-white/30 shrink-0" />
-              <span className="text-xs font-light">Licença {repo.license.spdx_id || repo.license.name}</span>
+              <span className="text-xs font-light truncate">Licença {repo.license.spdx_id || repo.license.name}</span>
             </div>
           )}
         </div>
 
-        <div className="border-t border-white/10 pt-4 space-y-2.5" data-testid="repository__owner">
+        <div className="border-t border-white/10 pt-4 space-y-2.5 min-w-0" data-testid="repository__owner">
           <h2 className="text-base! font-light text-white/40 font-centrale-sans">Proprietário</h2>
           <RouterLink
             to={`/${repo.owner?.login || user}`}
-            className="flex items-center gap-2.5 group transition"
+            className="flex items-center gap-2.5 group transition min-w-0"
             data-testid="repository__owner-link"
           >
             <Avatar src={repo.owner?.avatar_url} name={repo.owner?.login || user} className="w-6 h-6 shrink-0" />
-            <span className="text-sm font-light text-white/80 group-hover:text-[#1FB76B] transition truncate">
+            <span className="text-xs sm:text-sm font-light text-white/80 group-hover:text-[#1FB76B] transition truncate">
               {repo.owner?.login || user}
             </span>
           </RouterLink>

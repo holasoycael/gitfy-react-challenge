@@ -79,19 +79,19 @@ const DataUsersDrawer = ({ data }: DataUsersDrawerProps) => {
                                 className="border border-white/10 shrink-0"
                                 data-testid="users-drawer__avatar"
                               />
-                              <div className="flex flex-col space-y-1">
+                              <div className="flex flex-col space-y-1 min-w-0">
                                 <span
                                   className="text-xs font-medium text-white truncate"
                                   data-testid="users-drawer__name"
                                 >
                                   {user.name || user.login}
                                 </span>
-                                <div className="flex space-x-2">
-                                  <span className="text-[11px] text-[#1FB76B] font-mono truncate leading-3.5">
+                                <div className="flex items-center gap-1.5 min-w-0">
+                                  <span className="text-[11px] text-[#1FB76B] font-mono truncate leading-3.5 shrink-0">
                                     @{user.login}
                                   </span>
                                   {user.bio && (
-                                    <span className="text-[11px] text-white/40 truncate max-w-50 font-extralight  leading-3.5">
+                                    <span className="text-[11px] text-white/40 truncate max-w-24 sm:max-w-44 font-extralight leading-3.5">
                                       {user.bio}
                                     </span>
                                   )}

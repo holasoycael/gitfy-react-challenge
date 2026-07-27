@@ -7,12 +7,12 @@ import SkeletonRepoList from 'components/RepoList/skeleton'
 const SkeletonProfile = () => {
   return (
     <div
-      className="w-full grid grid-cols-1 lg:grid-cols-[296px_1fr] gap-10 items-start"
+      className="w-full grid grid-cols-1 lg:grid-cols-[296px_1fr] gap-6 lg:gap-10 items-start"
       data-testid="profile__skeleton"
     >
       {/* Left Sidebar Skeleton (ProfileCard) */}
-      <aside className="sticky top-6 space-y-5">
-        <Skeleton className="rounded-full w-65 h-65 shrink-0" />
+      <aside className="relative lg:sticky top-0 lg:top-6 space-y-5">
+        <Skeleton className="rounded-full w-36 h-36 sm:w-48 sm:h-48 lg:w-65 lg:h-65 shrink-0" />
 
         <div className="space-y-1">
           <Skeleton className="h-9.5 w-48 rounded-md" />

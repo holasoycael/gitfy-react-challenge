@@ -43,22 +43,22 @@ const RepoItem = ({ repo, username }: RepoItemProps) => {
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-1.5 min-w-0 flex-1">
           <span
-            className="text-sm font-medium text-[#1FB76B] group-hover:underline transition"
+            className="text-sm font-medium text-[#1FB76B] group-hover:underline transition wrap-break-word"
             data-testid="repo-item__name"
           >
             {repo.name}
           </span>
           {repo.description && (
             <p
-              className="text-xs text-white/40 font-light leading-relaxed line-clamp-2"
+              className="text-xs text-white/40 font-light leading-relaxed line-clamp-2 wrap-break-word"
               data-testid="repo-item__description"
             >
               {repo.description}
             </p>
           )}
-          <div className="flex items-center gap-3 mt-1">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-1">
             {repo.language && (
-              <div className="flex items-center gap-1" data-testid="repo-item__language">
+              <div className="flex items-center gap-1 shrink-0" data-testid="repo-item__language">
                 <span
                   className="w-2.5 h-2.5 rounded-full shrink-0"
                   style={{ backgroundColor: languageColor || undefined }}
@@ -67,18 +67,18 @@ const RepoItem = ({ repo, username }: RepoItemProps) => {
               </div>
             )}
             {!!repo.stargazers_count && (
-              <div className="flex items-center gap-1" data-testid="repo-item__stars">
-                <IconStar size={13} className="text-white/30" />
+              <div className="flex items-center gap-1 shrink-0" data-testid="repo-item__stars">
+                <IconStar size={13} className="text-white/30 shrink-0" />
                 <span className="text-xs text-white/40 font-light">{repo.stargazers_count}</span>
               </div>
             )}
             {repo.fork && (
-              <div className="flex items-center gap-1" data-testid="repo-item__fork">
-                <IconGitFork size={13} className="text-white/30" />
+              <div className="flex items-center gap-1 shrink-0" data-testid="repo-item__fork">
+                <IconGitFork size={13} className="text-white/30 shrink-0" />
                 <span className="text-xs text-white/40 font-light">Fork</span>
               </div>
             )}
-            <span className="text-xs text-white/25 font-light" data-testid="repo-item__date">
+            <span className="text-xs text-white/25 font-light shrink-0" data-testid="repo-item__date">
               Atualizado em {formattedDate}
             </span>
           </div>

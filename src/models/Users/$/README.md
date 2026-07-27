@@ -25,7 +25,7 @@ A abordagem adotada neste modelo aproxima-se da arquitetura de um **banco de dad
 - **Escalabilidade Sem Perda de Performance**:
   - À medida que mais usuários são buscados e visualizados, o cache em memória cresce dinamicamente sem afetar o desempenho da renderização.
 - **Redução de Chamadas à API do GitHub**:
-  - Evita consumo desnecessário da cota de requisições (*rate limit*) da API do GitHub ao manter o perfil dos usuários já consultados acessíveis localmente.
+  - Evita consumo desnecessário da cota de requisições (_rate limit_) da API do GitHub ao manter o perfil dos usuários já consultados acessíveis localmente.
 - **Partialize Inteligente**:
   - Apenas o mapa `users` é serializado e armazenado no banco local (`partialize`), mantendo o payload limpo e seguro sem guardar estados transitórios da aplicação.
 

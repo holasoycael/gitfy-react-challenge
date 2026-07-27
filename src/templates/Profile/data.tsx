@@ -20,7 +20,10 @@ const DataProfile = ({ data }: DataProfileProps) => {
   }, [])
 
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-[296px_1fr] gap-10 items-start" data-testid="profile__data">
+    <div
+      className="w-full grid grid-cols-1 lg:grid-cols-[296px_1fr] gap-6 lg:gap-10 items-start"
+      data-testid="profile__data"
+    >
       <ProfileCard data={data} />
       <RepoList username={data.login} />
     </div>

@@ -16,7 +16,7 @@ const GlowTop = ({ color = '#1fb76b', opacity = 0.35, zIndex = 1 }: GlowTopProps
         flex: 'none',
         height: '726px',
         left: 'calc(50.00000000000002% - 345px / 2)',
-        position: 'absolute',
+        position: 'fixed',
         top: '-328px',
         userSelect: 'none',
         width: '345px',

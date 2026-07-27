@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react'
-import type { Key } from 'react'
 
 // heroui
 import { Select } from '@heroui/react'
@@ -14,6 +13,7 @@ import RepoItem from 'components/RepoItem'
 // types and interfaces
 import type { DataRepoListProps, TSortKey } from './types'
 import type { IGitHubRepo } from 'models/Github/repos/types'
+import type { Key } from 'react'
 
 const SORT_OPTIONS = [
   { key: 'stars-desc', label: 'Estrelas ↓' },
@@ -53,7 +53,7 @@ const DataRepoList = ({ repos, username }: DataRepoListProps) => {
   return (
     <div className="w-full flex flex-col" data-testid={sortedRepos.length ? 'repo-list' : 'repo-list__empty-state'}>
       <div
-        className="w-full flex items-center justify-between pb-4 border-b border-white/8 h-7"
+        className="w-full flex items-center justify-between pb-4 border-b border-white/8 gap-2 sm:gap-0 min-h-7"
         data-testid="repo-list__header"
       >
         <div className="flex items-center gap-2">

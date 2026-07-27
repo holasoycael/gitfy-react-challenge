@@ -19,7 +19,7 @@ const RecentUsers = ({ items, onClick, onOpen }: RecentUsersProps) => {
   return (
     <div className="w-full flex flex-col space-y-6" data-testid="recent-users__wrapper">
       <div
-        className="w-full flex items-center justify-center gap-2.5 text-xs text-white/60 px-1 flex-wrap"
+        className="w-full flex max-sm:flex-col items-center justify-center gap-2.5 text-xs text-white/60 px-1 flex-wrap"
         data-testid="recent-users__container"
       >
         <div className="flex items-center gap-1.5" data-testid="recent-users__header">
@@ -34,7 +34,7 @@ const RecentUsers = ({ items, onClick, onOpen }: RecentUsersProps) => {
           )}
         </div>
 
-        <div className="flex items-center gap-2.5 flex-wrap" data-testid="recent-users__list">
+        <div className="flex max-sm:flex-col items-center gap-2.5 flex-wrap" data-testid="recent-users__list">
           {(displayedItems.length ? displayedItems : Users.data.DEFAULT_SUGGESTIONS).map((username) => (
             <button
               key={username}

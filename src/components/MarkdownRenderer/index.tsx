@@ -8,7 +8,10 @@ import type { MarkdownRendererProps } from './types'
 
 const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
   return (
-    <div className="markdown-body bg-transparent! text-white/80! text-xs" data-testid="markdown-renderer">
+    <div
+      className="markdown-body bg-transparent! text-white/80! text-xs overflow-x-auto max-w-full"
+      data-testid="markdown-renderer"
+    >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
@@ -19,7 +22,7 @@ const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
                 style={oneDark}
                 language={match[1]}
                 PreTag="div"
-                className="rounded-xl border border-white/10 text-xs my-3 bg-zinc-950/80!"
+                className="rounded-xl border border-white/10 text-xs my-3 bg-zinc-950/80! overflow-x-auto max-w-full"
               >
                 {String(children).replace(/\n$/, '')}
               </SyntaxHighlighter>

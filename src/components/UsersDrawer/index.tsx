@@ -20,7 +20,7 @@ const UsersDrawer = ({ isOpen, onOpenChange }: UsersDrawerProps) => {
       data-testid="users-drawer"
       className="rounded-none"
     >
-      <DrawerContent className="text-white bg-(--bg)">
+      <DrawerContent className="text-white bg-(--bg) w-full sm:max-w-md">
         <DataFetch />
       </DrawerContent>
     </Drawer>

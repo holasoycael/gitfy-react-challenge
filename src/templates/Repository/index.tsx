@@ -23,7 +23,7 @@ const Repository = () => {
 
   return (
     <SimpleBar forceVisible="y" autoHide className="h-screen">
-      <main className="dark flex flex-col min-h-screen items-center p-6 pt-4 relative overflow-hidden">
+      <main className="dark flex flex-col min-h-screen items-center p-4 sm:p-6 pt-4 relative overflow-x-hidden">
         <Atmosphere />
         <GlowTop />
         <GlowBottom />
@@ -33,7 +33,7 @@ const Repository = () => {
             variant="light"
             size="sm"
             onPress={handleBack}
-            className="text-white/50 hover:text-white text-xs mb-6 -ml-5 font-light"
+            className="text-white/50 hover:text-white text-xs mb-4 sm:mb-6 -ml-2 sm:-ml-5 font-light"
             data-testid="repository__button--back"
           >
             <IconArrowLeft size={14} strokeWidth={1.5} />

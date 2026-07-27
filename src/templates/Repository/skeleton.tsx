@@ -4,7 +4,7 @@ import { Skeleton } from '@heroui/react'
 const SkeletonRepository = () => {
   return (
     <div
-      className="w-full grid grid-cols-1 lg:grid-cols-[1fr_296px] gap-10 items-start"
+      className="w-full flex flex-col-reverse lg:grid lg:grid-cols-[1fr_296px] gap-6 lg:gap-10 items-start"
       data-testid="repository__skeleton"
     >
       {/* Left Column: README Skeleton */}
