@@ -6,12 +6,14 @@ import type { IGitHubRepo, TGitHubRepos } from './types'
 
 export default new (class {
   async fetchByUsername(username: string): Promise<TGitHubRepos> {
-    const response = await api.get<TGitHubRepos>(`users/${username}/repos?per_page=100&sort=updated`)
+    const fetchUrl = `users/${username}/repos?per_page=100&sort=updated`
+    const response = await api.get<TGitHubRepos>(fetchUrl)
     return response.data
   }
 
   async fetchByName(owner: string, repo: string): Promise<IGitHubRepo> {
-    const response = await api.get<IGitHubRepo>(`repos/${owner}/${repo}`)
+    const fetchUrl = `repos/${owner}/${repo}`
+    const response = await api.get<IGitHubRepo>(fetchUrl)
     return response.data
   }
 })()

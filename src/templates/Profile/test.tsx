@@ -13,6 +13,12 @@ jest.mock('react-router', () => ({
   useNavigate: () => jest.fn()
 }))
 
+jest.mock('components/RepoList', () => {
+  return function DummyRepoList() {
+    return <div data-testid="repo-list" />
+  }
+})
+
 describe('<Profile /> components', () => {
   it('should render Skeleton profile state', () => {
     render(<SkeletonProfile />)
@@ -30,10 +36,10 @@ describe('<Profile /> components', () => {
   })
 
   it('should render Data profile state with user information', () => {
-    render(<DataProfile data={mock} repos={[]} reposLoading={false} reposError={false} />)
+    render(<DataProfile data={mock} />)
     expect(screen.getByTestId('profile__data')).toBeInTheDocument()
     expect(screen.getByTestId('profile-card__name')).toHaveTextContent('Natanael Lourenço')
-    expect(screen.getByTestId('profile-card__login')).toHaveTextContent('@holasoycael')
+    expect(screen.getByTestId('profile-card__login')).toHaveTextContent('holasoycael')
     expect(screen.getByTestId('profile-card__bio')).toHaveTextContent('Full Stack Developer')
   })
 })

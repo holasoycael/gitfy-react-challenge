@@ -1,4 +1,5 @@
 import { expect, within, userEvent, fn } from 'storybook/test'
+import SimpleBar from 'simplebar-react'
 
 // helpers
 import { App } from 'helpers/Storybook'
@@ -25,7 +26,7 @@ export default {
   title: 'Components/SearchUser',
   component: SearchUser,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     docs: {
       description: {
         component:
@@ -49,11 +50,15 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div className="relative w-120 min-h-75 bg-[#0d1117] p-8 rounded-xl border border-white/10">
-        <App>
-          <Story />
-        </App>
-      </div>
+      <SimpleBar className="w-full h-screen bg-[#0d1117] text-white">
+        <div className="flex items-center justify-center min-h-screen p-8">
+          <div className="relative w-120 max-w-full">
+            <App>
+              <Story />
+            </App>
+          </div>
+        </div>
+      </SimpleBar>
     )
   ]
 } as Meta<typeof SearchUser>

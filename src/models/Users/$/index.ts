@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware'
 import { createStore, get, set, del } from 'idb-keyval'
 
 // types and interfaces
-import type { UserProps, TUser } from './types'
+import type { UserProps, TLocalUser } from './types'
 
 const store = createStore('gitfy-db', 'zustand')
 
@@ -11,8 +11,8 @@ export const UserState = create<UserProps>()(
   persist(
     (set, get) => ({
       isReady: false,
-      users: new Map<string, TUser>(),
-      add: (username: string, user: TUser) => {
+      users: new Map<string, TLocalUser>(),
+      add: (username: string, user: TLocalUser) => {
         const { users } = get()
 
         const updatedUsers = new Map(users)
@@ -28,7 +28,7 @@ export const UserState = create<UserProps>()(
 
         set({ users: updatedUsers })
       },
-      update: (username: string, user: TUser) => {
+      update: (username: string, user: TLocalUser) => {
         const { users } = get()
 
         const updatedUsers = new Map(users)
@@ -37,7 +37,7 @@ export const UserState = create<UserProps>()(
         set({ users: updatedUsers })
       },
       clear: () => {
-        set({ users: new Map<string, TUser>() })
+        set({ users: new Map<string, TLocalUser>() })
       },
       setStateReady: () => {
         set({ isReady: true })

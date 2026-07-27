@@ -1,3 +1,5 @@
+import { MemoryRouter } from 'react-router'
+
 // heroui
 import { HeroUIProvider } from '@heroui/react'
 
@@ -8,5 +10,9 @@ import 'styles/index.css'
 import type { AppProps } from './types'
 
 export const App = ({ children }: AppProps) => {
-  return <HeroUIProvider>{children}</HeroUIProvider>
+  return (
+    <MemoryRouter>
+      <HeroUIProvider>{children}</HeroUIProvider>
+    </MemoryRouter>
+  )
 }

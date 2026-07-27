@@ -1,3 +1,7 @@
+// global css
+import 'simplebar-react/dist/simplebar.min.css'
+import 'styles/index.css'
+
 // types and interfaces
 import type { Preview } from '@storybook/react-webpack5'
 

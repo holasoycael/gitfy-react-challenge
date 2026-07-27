@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router'
 
 // heroui
-import { Card } from '@heroui/react'
-import { CardBody } from '@heroui/react'
 import { Button } from '@heroui/react'
 
 // icons lucide
@@ -21,52 +19,48 @@ const ErrorProfile = ({ username, onRetry }: ErrorProfileProps) => {
   }
 
   return (
-    <Card
-      className="w-full max-w-2xl bg-black/40 backdrop-blur-md border border-red-500/20 p-8 shadow-2xl rounded-2xl"
+    <div
+      className="w-full min-h-[calc(100vh-160px)] flex flex-col items-center justify-center gap-4 text-center my-auto"
       data-testid="profile__error"
     >
-      <CardBody
-        className="flex flex-col items-center justify-center text-center space-y-6 p-0"
-        data-testid="profile__error-body"
-      >
-        <div
-          className="p-4 rounded-full bg-red-500/10 text-red-400 border border-red-500/20"
-          data-testid="profile__error-icon"
-        >
-          <IconAlertCircle size={48} />
-        </div>
-        <div className="space-y-2" data-testid="profile__error-message">
-          <h2 className="text-xl font-bold text-white" data-testid="profile__error-title">
+      <div className="flex flex-col items-center gap-2">
+        <IconAlertCircle size={30} strokeWidth={1.5} className="text-red-400/70 mb-0.5" />
+
+        <div className="flex flex-col items-center gap-1.5 max-w-md" data-testid="profile__error-message">
+          <h2 className="text-sm font-medium text-white tracking-wide" data-testid="profile__error-title">
             Perfil não encontrado
           </h2>
-          <p className="text-sm text-white/60 max-w-md" data-testid="profile__error-description">
+          <p className="text-xs text-white/40 font-light leading-relaxed" data-testid="profile__error-description">
             Não foi possível carregar as informações do usuário{' '}
-            <span className="text-primary font-semibold">@{username || 'desconhecido'}</span>.
+            <span className="text-[#1FB76B] font-mono font-normal">@{username || 'desconhecido'}</span>.
           </p>
         </div>
-        <div className="flex items-center gap-4 pt-2" data-testid="profile__error-actions">
-          <Button
-            variant="flat"
-            color="default"
-            onPress={handleBack}
-            className="font-medium text-white/80"
-            data-testid="profile__button--back"
-          >
-            <IconArrowLeft size={16} />
-            Voltar ao Início
-          </Button>
-          <Button
-            color="primary"
-            onPress={onRetry}
-            className="font-semibold shadow-md"
-            data-testid="profile__button--retry"
-          >
-            <IconRotateCcw size={16} />
-            Tentar Novamente
-          </Button>
-        </div>
-      </CardBody>
-    </Card>
+      </div>
+
+      <div className="flex items-center gap-3 pt-1" data-testid="profile__error-actions">
+        <Button
+          size="sm"
+          variant="light"
+          onPress={handleBack}
+          className="text-xs text-white/50 hover:text-white font-light"
+          data-testid="profile__button--back"
+        >
+          <IconArrowLeft size={14} strokeWidth={1.5} />
+          Voltar ao início
+        </Button>
+        <Button
+          size="sm"
+          variant="flat"
+          color="primary"
+          onPress={onRetry}
+          className="text-xs font-light text-[#1FB76B] bg-[#1FB76B]/10 hover:bg-[#1FB76B]/20"
+          data-testid="profile__button--retry"
+        >
+          <IconRotateCcw size={13} strokeWidth={1.5} />
+          Tentar novamente
+        </Button>
+      </div>
+    </div>
   )
 }
 

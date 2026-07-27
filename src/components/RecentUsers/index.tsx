@@ -14,6 +14,8 @@ import { SparkleIcon as IconSparkles } from '@phosphor-icons/react'
 import type { RecentUsersProps } from './types'
 
 const RecentUsers = ({ items, onClick, onOpen }: RecentUsersProps) => {
+  const displayedItems = items.slice(0, 4)
+
   return (
     <div className="w-full flex flex-col space-y-6" data-testid="recent-users__wrapper">
       <div
@@ -21,7 +23,7 @@ const RecentUsers = ({ items, onClick, onOpen }: RecentUsersProps) => {
         data-testid="recent-users__container"
       >
         <div className="flex items-center gap-1.5" data-testid="recent-users__header">
-          {items.length ? (
+          {displayedItems.length ? (
             <div className="flex text-white/50">
               <IconClockClockwise size={20} strokeWidth={1} />
             </div>
@@ -33,7 +35,7 @@ const RecentUsers = ({ items, onClick, onOpen }: RecentUsersProps) => {
         </div>
 
         <div className="flex items-center gap-2.5 flex-wrap" data-testid="recent-users__list">
-          {(items.length ? items : Users.data.DEFAULT_SUGGESTIONS).map((username) => (
+          {(displayedItems.length ? displayedItems : Users.data.DEFAULT_SUGGESTIONS).map((username) => (
             <button
               key={username}
               type="button"

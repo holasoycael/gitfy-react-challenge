@@ -36,7 +36,7 @@ const Home = () => {
 
   const onClick = (username: string) => navigate(`/${username}`)
   const onOpen = () => setIsOpenCart(true)
-  const items = Array.from(users.keys())
+  const items = Users.data.__Array__.getRecentLogins(users, 4)
 
   return (
     <main className="dark flex flex-col min-h-screen items-center justify-center">

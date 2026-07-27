@@ -1,0 +1,38 @@
+// types and interfaces
+import type { IUser } from 'models/Users/$/types'
+
+export default {
+  login: 'holasoycael',
+  id: 9421010,
+  node_id: 'MDQ6VXNlcjk0MjEwMTA=',
+  avatar_url: 'https://avatars.githubusercontent.com/u/9421010?v=4',
+  gravatar_id: '',
+  url: 'https://api.github.com/users/holasoycael',
+  html_url: 'https://github.com/holasoycael',
+  followers_url: 'https://api.github.com/users/holasoycael/followers',
+  following_url: 'https://api.github.com/users/holasoycael/following{/other_user}',
+  gists_url: 'https://api.github.com/users/holasoycael/gists{/gist_id}',
+  starred_url: 'https://api.github.com/users/holasoycael/starred{/owner}{/repo}',
+  subscriptions_url: 'https://api.github.com/users/holasoycael/subscriptions',
+  organizations_url: 'https://api.github.com/users/holasoycael/orgs',
+  repos_url: 'https://api.github.com/users/holasoycael/repos',
+  events_url: 'https://api.github.com/users/holasoycael/events{/privacy}',
+  received_events_url: 'https://api.github.com/users/holasoycael/received_events',
+  type: 'User',
+  user_view_type: 'public',
+  site_admin: false,
+  name: 'Natanael Lourenço',
+  company: 'Company',
+  blog: 'cael.dev',
+  location: 'São Paulo - Brasil',
+  email: 'holasoycael@gmail.com',
+  hireable: true,
+  bio: 'Full Stack Developer 👨🏻💻',
+  twitter_username: null,
+  public_repos: 17,
+  public_gists: 1,
+  followers: 31,
+  following: 6,
+  created_at: '2014-10-27T18:13:46Z',
+  updated_at: '2026-07-26T17:12:56Z'
+} satisfies IUser

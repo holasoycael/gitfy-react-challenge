@@ -271,6 +271,12 @@ p {
   margin: 0;
 }
 
+html, body, #root, #root > div {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
 [role='tooltip'] {
   padding: 6px 10px !important;
   border-radius: 6px !important;
@@ -283,6 +289,69 @@ p {
 [role='tooltip'] .react-tooltip-content-wrapper {
   padding: initial !important;
   line-height: inherit;
+}
+#storybook-root {
+  width: 100%;
+  height: 100%;
+  padding: 0 !important;
+}
+
+
+[data-simplebar] {
+  height: 100%;
+
+  .simplebar-content {
+    min-height: 100%;
+  }
+
+  .simplebar-content:after,
+  .simplebar-content:before {
+    content: '';
+  }
+
+  & .simplebar-scrollbar:before {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.scroll-shadow .simplebar-offset::before,
+.scroll-shadow .simplebar-offset::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.25s linear;
+}
+
+.scroll-shadow .simplebar-offset::before {
+  top: 0;
+  bottom: auto;
+  background: linear-gradient(to bottom, var(--scroll-shadow-color,#ffffff) 0%, rgba(0,0,0,0) 100%);
+}
+
+.scroll-shadow .simplebar-offset::after {
+  bottom: 0;
+  top: auto;
+  background: linear-gradient(to top, var(--scroll-shadow-color,#ffffff) 0%, rgba(0,0,0,0) 100%);
+}
+
+.scroll-shadow .simplebar-offset .simplebar-content {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+[data-before="visible"].scroll-shadow .simplebar-offset::before {
+  opacity: 1;
+}
+
+[data-after="visible"].scroll-shadow .simplebar-offset::after {
+  opacity: 1;
 }
 
 /* ========================================

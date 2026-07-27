@@ -1,9 +1,9 @@
 export type UserProps = {
   isReady: boolean
   users: TUserMap
-  add: (username: string, user: TUser) => void
+  add: (username: string, user: TLocalUser) => void
   remove: (username: string) => void
-  update: (username: string, user: TUser) => void
+  update: (username: string, user: TLocalUser) => void
   clear: () => void
   setStateReady: () => void
 }
@@ -28,14 +28,14 @@ export interface IUser {
   type: string
   user_view_type: string
   site_admin: boolean
-  name: string
-  company: unknown
-  blog: string
-  location: string
-  email: unknown
-  hireable: unknown
-  bio: string
-  twitter_username: unknown
+  name: string | null
+  company: string | null
+  blog: string | null
+  location: string | null
+  email: string | null
+  hireable: boolean | null
+  bio: string | null
+  twitter_username: string | null
   public_repos: number
   public_gists: number
   followers: number
@@ -45,4 +45,10 @@ export interface IUser {
 }
 
 export type TUser = Omit<IUser, 'login'>
-export type TUserMap = Map<string, TUser>
+export type TLocalUser = TUser & {
+  accessedAt: number
+}
+export interface ILocalUser extends IUser {
+  accessedAt?: number
+}
+export type TUserMap = Map<string, TLocalUser>
