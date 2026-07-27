@@ -1,16 +1,34 @@
-// heroui
-import { Input } from '@heroui/input'
-import { Button } from '@heroui/button'
+// import { useNavigate } from 'react-router'
 
 // components JSX
 import Atmosphere from 'components/Atmosphere'
 import GlowTop from 'components/GlowTop'
 import GlowBottom from 'components/GlowBottom'
+import SearchUser from 'components/SearchUser'
 
-// icons lucide
-import { Search as IconSearch } from 'lucide-react'
+// types and interfaces
+import type { TRowUser } from 'components/SearchUser/types'
+
+// models
+import GitHub from 'models/Github'
 
 const Home = () => {
+  // const navigate = useNavigate()
+
+  const onSelect = (user: TRowUser) => {
+    // navigate(`/user/${user.login}`)
+    console.log(user)
+  }
+
+  const onFetch = async (query: string) => {
+    const data = await GitHub.search.fetchByQuery(query, 5)
+
+    return data.map((user) => ({
+      username: user.login,
+      avatarUrl: user.avatar_url
+    }))
+  }
+
   return (
     <main className="dark flex flex-col min-h-screen items-center justify-center">
       <Atmosphere />
@@ -32,36 +50,7 @@ const Home = () => {
         <GlowBottom />
 
         <div className="flex flex-col gap-2">
-          <Input
-            size="lg"
-            variant="bordered"
-            placeholder="Buscar GitHub username..."
-            startContent={
-              <div>
-                <IconSearch size={18} />
-              </div>
-            }
-            endContent={
-              <Button
-                color="primary"
-                size="sm"
-                variant="shadow"
-                startContent={
-                  <div>
-                    <IconSearch size={16} />
-                  </div>
-                }
-                className="px-5"
-              >
-                <span className="leading-3.5!">Buscar</span>
-              </Button>
-            }
-            classNames={{
-              mainWrapper: 'w-full',
-              inputWrapper: 'pr-1.5',
-              input: 'placeholder:text-sm placeholder:text-white/60 placeholder:font-extralight'
-            }}
-          />
+          <SearchUser onFetch={onFetch} onSelect={onSelect} placeholder="Buscar GitHub username..." />
         </div>
       </div>
 
