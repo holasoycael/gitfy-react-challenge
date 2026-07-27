@@ -1,4 +1,7 @@
-// import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
+
+// models
+import GitHub from 'models/Github'
 
 // components JSX
 import Atmosphere from 'components/Atmosphere'
@@ -9,14 +12,11 @@ import SearchUser from 'components/SearchUser'
 // types and interfaces
 import type { TRowUser } from 'components/SearchUser/types'
 
-// models
-import GitHub from 'models/Github'
-
 const Home = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const onSelect = (user: TRowUser) => {
-    // navigate(`/user/${user.login}`)
+    navigate(`/${user.username}`)
     console.log(user)
   }
 

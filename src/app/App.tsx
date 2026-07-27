@@ -1,8 +1,8 @@
-// templates
-import Home from 'templates/Home'
+// components JSX
+import Routes from 'app/routes'
 
 const App = () => {
-  return <Home />
+  return <Routes />
 }
 
 export default App

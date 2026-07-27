@@ -60,5 +60,11 @@ module.exports = [
       'react-refresh/only-export-components': 'off'
     }
   },
+  {
+    files: ['src/pages/**/*.tsx', 'src/app/routes.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off'
+    }
+  },
   prettierConfig
 ]
