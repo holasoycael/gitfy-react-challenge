@@ -7,7 +7,7 @@ exports[`<GlowBottom /> should render default glow bottom element correctly 1`] 
   <div
     class="pointer-events-none"
     data-testid="glow-bottom__container"
-    style="background: radial-gradient(48.78087172574147% 48.780871725741484% at 52.26579732061952% 52.311511675873824%, rgb(31 183 107 / 0.25), rgba(0,0,0,0)); flex: 0 0 auto; height: 726px; left: calc(50% - 172.5px); position: absolute; bottom: -481px; user-select: none; width: 345px; z-index: 1; animation: glow-drift-bottom 26s ease-in-out infinite; will-change: transform, opacity;"
+    style="background: radial-gradient(48.78087172574147% 48.780871725741484% at 52.26579732061952% 52.311511675873824%, rgb(31 183 107 / 0.25), rgba(0,0,0,0)); flex: 0 0 auto; height: 726px; left: calc(50% - 172.5px); position: fixed; bottom: -481px; user-select: none; width: 345px; z-index: 1; animation: glow-drift-bottom 26s ease-in-out infinite; will-change: transform, opacity;"
   />
 </div>
 `;
